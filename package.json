@@ -40,7 +40,7 @@
   "dependencies": {
     "@babel/runtime": "^7.4.4",
     "clsx": "^2.1.0",
-    "react-dropzone": "^10.2.1",
+    "react-dropzone": "^14.2.3",
     "tslib": "^2.6.2"
   },
   "peerDependencies": {

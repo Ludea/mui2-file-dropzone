@@ -1611,6 +1611,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.25.0":
+  version: 7.25.4
+  resolution: "@babel/runtime@npm:7.25.4"
+  dependencies:
+    regenerator-runtime: "npm:^0.14.0"
+  checksum: 10c0/33e937e685f0bfc2d40c219261e2e50d0df7381a6e7cbf56b770e0c5d77cb0c21bf4d97da566cf0164317ed7508e992082c7b6cce7aaa3b17da5794f93fbfb46
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.22.15, @babel/template@npm:^7.24.0, @babel/template@npm:^7.6.0":
   version: 7.24.0
   resolution: "@babel/template@npm:7.24.0"
@@ -1918,19 +1927,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/icons-material@npm:^5.15.14":
-  version: 5.15.14
-  resolution: "@mui/icons-material@npm:5.15.14"
+"@mui/icons-material@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@mui/icons-material@npm:6.0.0"
   dependencies:
-    "@babel/runtime": "npm:^7.23.9"
+    "@babel/runtime": "npm:^7.25.0"
   peerDependencies:
-    "@mui/material": ^5.0.0
-    "@types/react": ^17.0.0 || ^18.0.0
-    react: ^17.0.0 || ^18.0.0
+    "@mui/material": ^6.0.0
+    "@types/react": ^17.0.0 || ^18.0.0 || ^19.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 8/719036244167c7cb5456074d7d66df0c26d4b200c11620ba177a4e75186f6ecc4930a3b4bcb7300d92aa37df19ca8406fa63ad4347214cc167ddca986eb1a198
+  checksum: 10c0/41dd50ff529228ebc066bdb2a83a85a24efb0adac85f4c30a76f5c8c39f1bf85502d6dfc4af69b616c0ce3283fec58f674b79182c77fcaf470d8daba69c7bbe7
   languageName: node
   linkType: hard
 
@@ -4781,7 +4790,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.24.3"
     "@babel/preset-typescript": "npm:^7.13.0"
     "@babel/runtime": "npm:^7.4.4"
-    "@mui/icons-material": "npm:^5.15.14"
+    "@mui/icons-material": "npm:^6.0.0"
     "@mui/material": "npm:^5.15.14"
     "@typescript-eslint/eslint-plugin": "npm:^7.5.0"
     "@typescript-eslint/parser": "npm:^7.5.0"

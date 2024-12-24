@@ -54,7 +54,7 @@
     "@babel/core": "^7.24.3",
     "@babel/preset-env": "^7.24.3",
     "@babel/preset-typescript": "^7.13.0",
-    "@mui/icons-material": "^5.15.14",
+    "@mui/icons-material": "^6.3.0",
     "@mui/material": "^5.15.14",
     "@typescript-eslint/eslint-plugin": "^8.15.0",
     "@typescript-eslint/parser": "^7.5.0",

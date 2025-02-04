@@ -53,9 +53,9 @@ export type DropzoneAreaProps = Omit<
   onDelete?: (deletedFile: File) => void;
 };
 
-type DropzoneAreaState = {
+interface DropzoneAreaState {
   fileObjects: FileObject[];
-};
+}
 
 /**
  * This components creates an uncontrolled Material-UI Dropzone, with previews and snackbar notifications.

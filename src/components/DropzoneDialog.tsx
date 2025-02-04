@@ -41,9 +41,9 @@ export type DropzoneDialogProps = Omit<
   onDelete?: (deletedFile: File) => void;
 };
 
-type DropzoneDialogState = {
+interface DropzoneDialogState {
   fileObjects: FileObject[];
-};
+}
 
 /**
  * This component provides an uncontrolled version of the DropzoneDialogBase component.

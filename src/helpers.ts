@@ -4,8 +4,8 @@ export function isImage(file: File) {
   }
 }
 
-const bytesInKiloB = 1024 as const; // 2 ** 10;
-const bytesInMegaB = 1048576 as const; // bytesInKiloB ** 2;
+const bytesInKiloB = 1024; // 2 ** 10;
+const bytesInMegaB = 1048576; // bytesInKiloB ** 2;
 
 export function convertBytesToMbsOrKbs(filesize: number) {
   let size = "";
@@ -21,7 +21,7 @@ export function convertBytesToMbsOrKbs(filesize: number) {
 
 export async function createFileFromUrl(url: string) {
   const response = await fetch(url);
-  const data = await response?.blob();
+  const data = await response.blob();
   const metadata = { type: data.type };
   const filename = url.replace(/\?.+/, "").split("/").pop();
   return new File([data], filename!, metadata);
@@ -35,7 +35,7 @@ export function readFile(file: File) {
     ) => {
       const reader = new FileReader();
       reader.onload = (event) => {
-        resolve(event?.target?.result);
+        resolve(event.target?.result);
       };
       reader.onerror = (event) => {
         reader.abort();

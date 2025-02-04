@@ -67,7 +67,7 @@ export const FileObjectShape = PropTypes.shape({
   data: PropTypes.any,
 });
 
-export type DropzoneAreaBaseClasses = {
+export interface DropzoneAreaBaseClasses {
   /** Material-UI class applied to the root Dropzone div */
   root: string;
   /** Material-UI class applied to the Dropzone when 'active' */
@@ -80,9 +80,9 @@ export type DropzoneAreaBaseClasses = {
   text: string;
   /** Material-UI class applied to the Dropzone icon */
   icon: string;
-};
+}
 
-export type DropzoneAreaBaseProps = {
+export interface DropzoneAreaBaseProps {
   classes?: Partial<DropzoneAreaBaseClasses>;
   /** A list of file types to accept.
    *
@@ -258,13 +258,13 @@ export type DropzoneAreaBaseProps = {
    * @param {Object} classes The classes for the file preview icon, in the default case we use the 'image' className.
    */
   getPreviewIcon?: PreviewListProps["getPreviewIcon"];
-};
+}
 
-type DropzoneAreaBaseState = {
+interface DropzoneAreaBaseState {
   openSnackBar: boolean;
   snackbarMessage: string;
   snackbarVariant: AlertType;
-};
+}
 
 /**
  * This components creates a Material-UI Dropzone, with previews and snackbar notifications.

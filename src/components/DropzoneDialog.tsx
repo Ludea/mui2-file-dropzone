@@ -123,7 +123,7 @@ class DropzoneDialog extends PureComponent<
         this.notifyFileChange
       );
     } catch (err) {
-      // eslint-disable-next-line no-console
+       
       console.log(err);
     }
   };

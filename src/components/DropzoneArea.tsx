@@ -135,7 +135,7 @@ class DropzoneArea extends PureComponent<DropzoneAreaProps, DropzoneAreaState> {
         this.notifyFileChange
       );
     } catch (err) {
-      // eslint-disable-next-line no-console
+       
       console.log(err);
     }
   };

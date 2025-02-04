@@ -33,6 +33,9 @@ importers:
       '@mui/material':
         specifier: ^5.15.14
         version: 5.16.14(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@types/react':
+        specifier: ^19.0.8
+        version: 19.0.8
       eslint:
         specifier: ^9.19.0
         version: 9.19.0

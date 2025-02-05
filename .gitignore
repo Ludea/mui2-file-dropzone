@@ -5,3 +5,4 @@ node_modules/
 styleguide/
 tsconfig.tsbuildinfo
 /dist
+pnpm-lock.yaml

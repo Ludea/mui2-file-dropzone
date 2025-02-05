@@ -1,13 +1,13 @@
 {
   "name": "mui2-file-dropzone",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "description": "A Material-UI file-upload dropzone. Written in TypeScript.",
   "license": "MIT",
   "author": "Yuval",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Ludea/mui2-file-dropzone.git"
+    "url": "git+https://github.com/Ludea/mui2-file-dropzone.git"
   },
   "keywords": [
     "react",
@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "clsx": "^2.1.0",
-    "react-dropzone": "^14.3.5",
+#    "react-dropzone": "^14.3.5",
     "tslib": "^2.6.2"
   },
   "peerDependencies": {
@@ -70,5 +70,6 @@
     "react-dom": "^19.0.0",
     "typescript": "^5.4.3",
     "typescript-eslint": "^8.18.1"
-  }
+  },
+  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
 }

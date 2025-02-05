@@ -5,7 +5,7 @@ import Fab, { FabProps } from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import clsx from "clsx";
 import PropTypes from "prop-types";
-import React, { useMemo } from "react";
+import React, { useMemo, JSX } from "react";
 
 import { FileObject } from "../types";
 

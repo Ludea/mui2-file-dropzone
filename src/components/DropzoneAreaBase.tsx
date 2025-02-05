@@ -18,7 +18,7 @@ import React, {
   HTMLProps,
   PureComponent,
 } from "react";
-import Dropzone, { DropEvent, DropzoneProps } from "react-dropzone";
+import Dropzone, { Accept, DropEvent, DropzoneProps } from "react-dropzone";
 
 import { convertBytesToMbsOrKbs, isImage, readFile } from "../helpers";
 import { AlertType, FileObject } from "../types";
@@ -88,7 +88,7 @@ export interface DropzoneAreaBaseProps {
    *
    * @see See [here](https://react-dropzone.js.org/#section-accepting-specific-file-types) for more details.
    */
-  acceptedFiles?: string[];
+  acceptedFiles?: Accept;
   /** Maximum number of files that can be loaded into the dropzone. */
   filesLimit?: number;
   /** Currently loaded files. */
@@ -596,7 +596,6 @@ class DropzoneAreaBase extends PureComponent<
     } = this.props;
     const { openSnackBar, snackbarMessage, snackbarVariant } = this.state;
 
-    const acceptFiles = acceptedFiles?.join(",");
     const isMultiple = filesLimit > 1;
     const previewsVisible = showPreviews && fileObjects.length > 0;
     const previewsInDropzoneVisible =
@@ -606,7 +605,7 @@ class DropzoneAreaBase extends PureComponent<
       <Fragment>
         <Dropzone
           {...dropzoneProps}
-          accept={acceptFiles}
+          accept={acceptedFiles}
           onDropAccepted={this.handleDropAccepted}
           onDropRejected={this.handleDropRejected}
           maxSize={maxFileSize}

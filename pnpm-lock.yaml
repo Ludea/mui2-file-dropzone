@@ -33,6 +33,9 @@ importers:
       '@mui/material':
         specifier: ^5.15.14
         version: 5.16.14(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@types/prop-types':
+        specifier: ^15.7.14
+        version: 15.7.14
       '@types/react':
         specifier: ^19.0.8
         version: 19.0.8

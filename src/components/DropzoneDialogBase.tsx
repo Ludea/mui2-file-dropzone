@@ -86,7 +86,7 @@ function splitDropzoneDialogProps(allProps: DropzoneDialogBaseProps) {
 
   const splitProps = [dropzoneDialogProps, dropzoneAreaProps] as [
     typeof dropzoneDialogProps,
-    typeof dropzoneAreaProps
+    typeof dropzoneAreaProps,
   ];
   return splitProps;
 }
@@ -134,7 +134,7 @@ class DropzoneDialogBase extends PureComponent<DropzoneDialogBaseProps> {
 
   render() {
     const [dropzoneDialogProps, dropzoneAreaProps] = splitDropzoneDialogProps(
-      this.props
+      this.props,
     );
     const {
       cancelButtonText,

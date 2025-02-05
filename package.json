@@ -29,6 +29,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "prettier": "prettier --check .",
     "build": "tsc -b",
     "start": "tsc -b --watch",
     "docs:dev": "styleguidist server",
@@ -38,7 +39,6 @@
     "prepublish": "npx tsc"
   },
   "dependencies": {
-    "@babel/runtime": "^7.4.4",
     "clsx": "^2.1.0",
     "react-dropzone": "^14.3.5",
     "tslib": "^2.6.2"

@@ -70,7 +70,7 @@ class DropzoneArea extends PureComponent<DropzoneAreaProps, DropzoneAreaState> {
     ...DropzoneAreaBase.propTypes,
     clearOnUnmount: PropTypes.bool,
     initialFiles: PropTypes.arrayOf(
-      PropTypes.oneOfType([PropTypes.string, PropTypes.any])
+      PropTypes.oneOfType([PropTypes.string, PropTypes.any]),
     ),
     filesLimit: PropTypes.number,
     onChange: PropTypes.func,
@@ -125,17 +125,16 @@ class DropzoneArea extends PureComponent<DropzoneAreaProps, DropzoneAreaState> {
 
           const fileObj: FileObject = { file, data };
           return fileObj;
-        })
+        }),
       );
 
       this.setState(
         (prevState: DropzoneAreaState) => ({
           fileObjects: [...prevState.fileObjects, ...fileObjs],
         }),
-        this.notifyFileChange
+        this.notifyFileChange,
       );
     } catch (err) {
-       
       console.log(err);
     }
   };
@@ -161,7 +160,7 @@ class DropzoneArea extends PureComponent<DropzoneAreaProps, DropzoneAreaState> {
 
   deleteFile: DropzoneAreaBaseProps["onDelete"] = (
     removedFileObj,
-    removedFileObjIdx
+    removedFileObjIdx,
   ) => {
     event?.stopPropagation();
 

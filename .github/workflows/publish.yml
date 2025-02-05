@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Clone repository
         uses: actions/checkout@v4
-        
+
       - name: setup node
         uses: actions/setup-node@v4.0.2
         with:
@@ -20,7 +20,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
-        run: yarn 
+        run: yarn
 
       - name: Build
         run: yarn build

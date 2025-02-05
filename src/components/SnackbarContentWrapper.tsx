@@ -35,7 +35,7 @@ export interface SnackbarContentWrapperProps
 
 const SnackbarContentWrapper = forwardRef(function SnackbarContentWrapper(
   props: SnackbarContentWrapperProps,
-  ref: SnackbarContentProps["ref"]
+  ref: SnackbarContentProps["ref"],
 ) {
   const {
     classes,
@@ -61,12 +61,12 @@ const SnackbarContentWrapper = forwardRef(function SnackbarContentWrapper(
         },
       } as BoxProps["sx"],
     }),
-    []
+    [],
   );
 
   const sxVariant = useMemo<SnackbarContentProps["sx"]>(
     () => ({ backgroundColor: `${variant}.main` }),
-    [variant]
+    [variant],
   );
 
   return (

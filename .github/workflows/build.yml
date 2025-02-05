@@ -8,7 +8,6 @@ on:
     branches:
       - master
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,18 +15,17 @@ jobs:
     steps:
       - name: Clone repository
         uses: actions/checkout@v4
-        
+
       - name: setup node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Install dependencies
-        run: yarn 
+        run: yarn
 
       - name: Build
         run: yarn build
 
       - name: Prepublish
         run: yarn prepublish
-

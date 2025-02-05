@@ -31,7 +31,7 @@ export function readFile(file: File) {
   return new Promise(
     (
       resolve: (value: string | ArrayBuffer | null | undefined) => void,
-      reject: (reason?: ProgressEvent<FileReader>) => void
+      reject: (reason?: ProgressEvent<FileReader>) => void,
     ) => {
       const reader = new FileReader();
       reader.onload = (event) => {
@@ -42,6 +42,6 @@ export function readFile(file: File) {
         reject(event);
       };
       reader.readAsDataURL(file);
-    }
+    },
   );
 }

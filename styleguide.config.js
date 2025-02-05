@@ -1,34 +1,34 @@
 module.exports = {
-  title: 'Material-UI Dropzone',
+  title: "Material-UI Dropzone",
   showSidebar: false,
   sections: [
     {
-      name: '',
-      content: './docs/intro.md',
+      name: "",
+      content: "./docs/intro.md",
     },
     {
-      name: 'Installation',
-      content: './docs/installation.md',
+      name: "Installation",
+      content: "./docs/installation.md",
     },
     {
-      name: 'Support',
-      content: './docs/support.md',
+      name: "Support",
+      content: "./docs/support.md",
     },
     {
-      name: 'Screenshots',
-      content: './docs/screenshots.md',
+      name: "Screenshots",
+      content: "./docs/screenshots.md",
     },
     {
-      name: 'Components',
-      components: './src/components/**.js',
+      name: "Components",
+      components: "./src/components/**.js",
     },
     {
-      name: 'Theme',
-      content: './docs/theming.md',
+      name: "Theme",
+      content: "./docs/theming.md",
     },
   ],
   skipComponentsWithoutExample: true,
-  usageMode: 'expand',
+  usageMode: "expand",
   sortProps: (props) => props,
   webpackConfig: {
     module: {
@@ -36,7 +36,7 @@ module.exports = {
         {
           test: /\.jsx?$/,
           exclude: /node_modules/,
-          loader: 'babel-loader',
+          loader: "babel-loader",
         },
       ],
     },

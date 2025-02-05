@@ -18,7 +18,12 @@ import React, {
   HTMLProps,
   PureComponent,
 } from "react";
-import Dropzone, { Accept, DropEvent, DropzoneProps, FileRejection } from "react-dropzone";
+import Dropzone, {
+  Accept,
+  DropEvent,
+  DropzoneProps,
+  FileRejection,
+} from "react-dropzone";
 
 import { convertBytesToMbsOrKbs, isImage, readFile } from "../helpers";
 import { AlertType, FileObject } from "../types";
@@ -33,7 +38,7 @@ const defaultSnackbarAnchorOrigin: SnackbarOrigin = {
 
 const defaultGetPreviewIcon: PreviewListProps["getPreviewIcon"] = (
   fileObject,
-  classes
+  classes,
 ) => {
   const { data, file } = fileObject || {};
   if (isImage(file)) {
@@ -241,13 +246,13 @@ export interface DropzoneAreaBaseProps {
    * *Default*: "File ${rejectedFile.name} was rejected."
    *
    * @param {Object} rejectedFile The file that got rejected
-   * @param {string[]} acceptedFiles The `acceptedFiles` prop currently set for the component
+   * @param {Accept} acceptedFiles The `acceptedFiles` prop currently set for the component
    * @param {number} maxFileSize The `maxFileSize` prop currently set for the component
    */
   getDropRejectMessage?: (
     rejectedFile: FileRejection,
-    acceptedFiles: string[],
-    maxFileSize: number
+    acceptedFiles: Accept,
+    maxFileSize: number,
   ) => string;
   /**
    * A function which determines which icon to display for a file preview.
@@ -296,7 +301,7 @@ class DropzoneAreaBase extends PureComponent<
     showAlerts: PropTypes.oneOfType([
       PropTypes.bool,
       PropTypes.arrayOf(
-        PropTypes.oneOf(["error", "success", "info", "warning"])
+        PropTypes.oneOf(["error", "success", "info", "warning"]),
       ),
     ]),
     alertSnackbarProps: PropTypes.object,
@@ -353,7 +358,7 @@ class DropzoneAreaBase extends PureComponent<
     >,
     getDropRejectMessage: ((rejectedFile, acceptedFiles, maxFileSize) => {
       let message = `File ${rejectedFile.file.name} was rejected. `;
-      if (!acceptedFiles.includes(rejectedFile.file.type)) {
+      if (!acceptedFiles.key.includes(rejectedFile.file.type)) {
         message += "File type not supported. ";
       }
       if (rejectedFile.file.size > maxFileSize) {
@@ -382,7 +387,7 @@ class DropzoneAreaBase extends PureComponent<
 
   handleDropAccepted: DropzoneProps["onDropAccepted"] = async (
     acceptedFiles,
-    evt
+    evt,
   ) => {
     const {
       fileObjects,
@@ -404,7 +409,7 @@ class DropzoneAreaBase extends PureComponent<
           snackbarMessage: getFileLimitExceedMessage(filesLimit),
           snackbarVariant: "error",
         },
-        this.notifyAlert
+        this.notifyAlert,
       );
       return;
     }
@@ -422,7 +427,7 @@ class DropzoneAreaBase extends PureComponent<
           file,
           data,
         };
-      })
+      }),
     );
 
     // Notify added files
@@ -433,7 +438,7 @@ class DropzoneAreaBase extends PureComponent<
     // Display message
     const message = fileObjs.reduce(
       (msg, fileObj) => msg + getFileAddedMessage(fileObj.file.name),
-      ""
+      "",
     );
     this.setState(
       {
@@ -441,13 +446,13 @@ class DropzoneAreaBase extends PureComponent<
         snackbarMessage: message,
         snackbarVariant: "success",
       },
-      this.notifyAlert
+      this.notifyAlert,
     );
   };
 
   handleDropRejected: DropzoneProps["onDropRejected"] = (
     rejectedFiles,
-    evt
+    evt,
   ) => {
     const {
       acceptedFiles,
@@ -468,7 +473,7 @@ class DropzoneAreaBase extends PureComponent<
         message = getDropRejectMessage(
           rejectedFile,
           acceptedFiles || [],
-          maxFileSize
+          maxFileSize,
         );
       });
     }
@@ -483,7 +488,7 @@ class DropzoneAreaBase extends PureComponent<
         snackbarMessage: message,
         snackbarVariant: "error",
       },
-      this.notifyAlert
+      this.notifyAlert,
     );
   };
 
@@ -511,7 +516,7 @@ class DropzoneAreaBase extends PureComponent<
         snackbarMessage: getFileRemovedMessage(removedFileObj.file.name),
         snackbarVariant: "info",
       },
-      this.notifyAlert
+      this.notifyAlert,
     );
   };
 
@@ -629,7 +634,7 @@ class DropzoneAreaBase extends PureComponent<
                     classes.root,
                     dropzoneClass,
                     isActive && classes.active,
-                    isInvalid && classes.invalid
+                    isInvalid && classes.invalid,
                   ),
                 })}
               >

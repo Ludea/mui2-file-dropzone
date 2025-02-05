@@ -19,7 +19,7 @@ export interface PreviewListProps {
   fileObjects: FileObject[];
   getPreviewIcon: (
     fileObject: FileObject,
-    classes: PreviewListProps["classes"]
+    classes: PreviewListProps["classes"],
   ) => JSX.Element;
   handleRemove: (index: number) => ChipProps["onDelete"];
   previewChipProps?: ChipProps;
@@ -49,7 +49,7 @@ function PreviewList(props: PreviewListProps) {
       width: "100%",
       gap: useChipsForPreview ? 1 : 8,
     }),
-    [useChipsForPreview]
+    [useChipsForPreview],
   );
 
   const sxImageContainer = useMemo<BoxProps["sx"]>(
@@ -77,7 +77,7 @@ function PreviewList(props: PreviewListProps) {
         opacity: 1,
       },
     }),
-    []
+    [],
   );
 
   const sxRemoveButton = useMemo<FabProps["sx"]>(
@@ -93,7 +93,7 @@ function PreviewList(props: PreviewListProps) {
         opacity: 1,
       },
     }),
-    []
+    [],
   );
 
   if (useChipsForPreview) {

@@ -1,13 +1,13 @@
 ### Import
 
 ```jsx static
-import { DropzoneDialog } from 'material-ui-dropzone';
+import { DropzoneDialog } from "material-ui-dropzone";
 ```
 
 ### Basic usage
 
 ```jsx
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 
 const [open, setOpen] = React.useState(false);
 
@@ -17,18 +17,18 @@ const [open, setOpen] = React.useState(false);
   </Button>
 
   <DropzoneDialog
-    acceptedFiles={['image/*']}
+    acceptedFiles={["image/*"]}
     cancelButtonText={"cancel"}
     submitButtonText={"submit"}
     maxFileSize={5000000}
     open={open}
     onClose={() => setOpen(false)}
     onSave={(files) => {
-      console.log('Files:', files);
+      console.log("Files:", files);
       setOpen(false);
     }}
     showPreviews={true}
     showFileNamesInPreview={true}
   />
-</div>
+</div>;
 ```

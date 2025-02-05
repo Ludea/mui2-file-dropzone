@@ -18,7 +18,7 @@ import React, {
   HTMLProps,
   PureComponent,
 } from "react";
-import Dropzone, { Accept, DropEvent, DropzoneProps } from "react-dropzone";
+import Dropzone, { Accept, DropEvent, DropzoneProps, FileRejection } from "react-dropzone";
 
 import { convertBytesToMbsOrKbs, isImage, readFile } from "../helpers";
 import { AlertType, FileObject } from "../types";
@@ -200,10 +200,10 @@ export interface DropzoneAreaBaseProps {
   /**
    * Fired when a file is rejected because of wrong file type, size or goes beyond the filesLimit.
    *
-   * @param {File[]} rejectedFiles All the rejected files.
+   * @param {FileRejection[]} rejectedFiles All the rejected files.
    * @param {Event} event The react-dropzone drop event.
    */
-  onDropRejected?: (rejectedFiles: File[], event: DropEvent) => void;
+  onDropRejected?: (rejectedFiles: FileRejection[], event: DropEvent) => void;
   /**
    * Fired when an alert is triggered.
    *
@@ -245,7 +245,7 @@ export interface DropzoneAreaBaseProps {
    * @param {number} maxFileSize The `maxFileSize` prop currently set for the component
    */
   getDropRejectMessage?: (
-    rejectedFile: File,
+    rejectedFile: FileRejection,
     acceptedFiles: string[],
     maxFileSize: number
   ) => string;
@@ -352,11 +352,11 @@ class DropzoneAreaBase extends PureComponent<
       DropzoneAreaBaseProps["getFileRemovedMessage"]
     >,
     getDropRejectMessage: ((rejectedFile, acceptedFiles, maxFileSize) => {
-      let message = `File ${rejectedFile.name} was rejected. `;
-      if (!acceptedFiles.includes(rejectedFile.type)) {
+      let message = `File ${rejectedFile.file.name} was rejected. `;
+      if (!acceptedFiles.includes(rejectedFile.file.type)) {
         message += "File type not supported. ";
       }
-      if (rejectedFile.size > maxFileSize) {
+      if (rejectedFile.file.size > maxFileSize) {
         message +=
           "File is too big. Size limit is " +
           convertBytesToMbsOrKbs(maxFileSize) +

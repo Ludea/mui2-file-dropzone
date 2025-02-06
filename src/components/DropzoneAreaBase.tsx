@@ -251,8 +251,8 @@ export interface DropzoneAreaBaseProps {
    */
   getDropRejectMessage?: (
     rejectedFile: FileRejection,
-    acceptedFiles: Accept,
-    maxFileSize: number,
+    acceptedFiles: Accept | never[],
+    maxFileSize: number | undefined,
   ) => string;
   /**
    * A function which determines which icon to display for a file preview.
@@ -356,10 +356,10 @@ class DropzoneAreaBase extends PureComponent<
     >,
     getDropRejectMessage: ((rejectedFile, acceptedFiles, maxFileSize) => {
       let message = `File ${rejectedFile.file.name} was rejected. `;
-      if (!acceptedFiles.key.includes(rejectedFile.file.type)) {
+      if (!acceptedFiles.includes(rejectedFile.file.type)) {
         message += "File type not supported. ";
       }
-      if (rejectedFile.file.size > maxFileSize) {
+      if (maxFileSize && rejectedFile.file.size > maxFileSize) {
         message +=
           "File is too big. Size limit is " +
           convertBytesToMbsOrKbs(maxFileSize) +

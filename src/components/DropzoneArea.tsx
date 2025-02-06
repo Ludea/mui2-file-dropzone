@@ -79,7 +79,6 @@ class DropzoneArea extends PureComponent<DropzoneAreaProps, DropzoneAreaState> {
 
   static defaultProps = {
     clearOnUnmount: true,
-    filesLimit: 3,
     initialFiles: [] as NonNullable<DropzoneAreaProps["initialFiles"]>,
   };
 
@@ -140,21 +139,23 @@ class DropzoneArea extends PureComponent<DropzoneAreaProps, DropzoneAreaState> {
   };
 
   addFiles: DropzoneAreaBaseProps["onAdd"] = async (newFileObjects) => {
-    const { filesLimit = DropzoneArea.defaultProps.filesLimit } = this.props;
+    const { filesLimit } = this.props;
 
     // Update component state
     this.setState((prevState: DropzoneAreaState) => {
       // Handle a single file
-      if (filesLimit <= 1) {
+      if (filesLimit && filesLimit <= 1) {
         return {
           fileObjects: [newFileObjects[0]],
         };
       }
 
       // Handle multiple files
-      return {
-        fileObjects: [...prevState.fileObjects, ...newFileObjects],
-      };
+      if (filesLimit) {
+        return {
+          fileObjects: [...prevState.fileObjects, ...newFileObjects],
+        };
+      }
     }, this.notifyFileChange);
   };
 

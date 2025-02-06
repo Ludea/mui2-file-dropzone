@@ -322,7 +322,6 @@ class DropzoneAreaBase extends PureComponent<
   static defaultProps = {
     acceptedFiles: [],
     fileObjects: [] as FileObject[],
-    maxFileSize: 3000000,
     dropzoneText: "Drag and drop a file here or click",
     previewText: "Preview:",
     disableRejectionFeedback: false,
@@ -461,7 +460,7 @@ class DropzoneAreaBase extends PureComponent<
       getDropRejectMessage = DropzoneAreaBase.defaultProps.getDropRejectMessage,
       getFileLimitExceedMessage = DropzoneAreaBase.defaultProps
         .getFileLimitExceedMessage,
-      maxFileSize = DropzoneAreaBase.defaultProps.maxFileSize,
+      maxFileSize,
       onDropRejected,
     } = this.props;
 

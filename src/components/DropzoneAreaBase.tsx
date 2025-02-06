@@ -321,7 +321,6 @@ class DropzoneAreaBase extends PureComponent<
 
   static defaultProps = {
     acceptedFiles: [],
-    filesLimit: 3,
     fileObjects: [] as FileObject[],
     maxFileSize: 3000000,
     dropzoneText: "Drag and drop a file here or click",
@@ -391,7 +390,7 @@ class DropzoneAreaBase extends PureComponent<
   ) => {
     const {
       fileObjects,
-      filesLimit = DropzoneAreaBase.defaultProps.filesLimit,
+      filesLimit,
       getFileAddedMessage = DropzoneAreaBase.defaultProps.getFileAddedMessage,
       getFileLimitExceedMessage = DropzoneAreaBase.defaultProps
         .getFileLimitExceedMessage,
@@ -400,6 +399,7 @@ class DropzoneAreaBase extends PureComponent<
     } = this.props;
 
     if (
+      filesLimit &&
       filesLimit > 1 &&
       fileObjects.length + acceptedFiles.length > filesLimit
     ) {
@@ -456,7 +456,7 @@ class DropzoneAreaBase extends PureComponent<
   ) => {
     const {
       acceptedFiles,
-      filesLimit = DropzoneAreaBase.defaultProps.filesLimit,
+      filesLimit,
       fileObjects,
       getDropRejectMessage = DropzoneAreaBase.defaultProps.getDropRejectMessage,
       getFileLimitExceedMessage = DropzoneAreaBase.defaultProps
@@ -466,7 +466,7 @@ class DropzoneAreaBase extends PureComponent<
     } = this.props;
 
     let message = "";
-    if (fileObjects.length + rejectedFiles.length > filesLimit) {
+    if (filesLimit && fileObjects.length + rejectedFiles.length > filesLimit) {
       message = getFileLimitExceedMessage(filesLimit);
     } else {
       rejectedFiles.forEach((rejectedFile) => {
@@ -583,7 +583,7 @@ class DropzoneAreaBase extends PureComponent<
       dropzoneProps,
       dropzoneText,
       fileObjects,
-      filesLimit = DropzoneAreaBase.defaultProps.filesLimit,
+      filesLimit,
       getPreviewIcon = DropzoneAreaBase.defaultProps.getPreviewIcon,
       Icon,
       inputProps,
@@ -601,7 +601,7 @@ class DropzoneAreaBase extends PureComponent<
     } = this.props;
     const { openSnackBar, snackbarMessage, snackbarVariant } = this.state;
 
-    const isMultiple = filesLimit > 1;
+    const isMultiple = filesLimit && filesLimit > 1 ? true : false;
     const previewsVisible = showPreviews && fileObjects.length > 0;
     const previewsInDropzoneVisible =
       showPreviewsInDropzone && fileObjects.length > 0;

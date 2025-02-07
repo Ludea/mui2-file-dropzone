@@ -5,7 +5,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import PropTypes from "prop-types";
-import React, { PureComponent, JSX } from "react";
+import React, { PureComponent, ReactElement } from "react";
 
 import DropzoneAreaBase, { DropzoneAreaBaseProps } from "./DropzoneAreaBase";
 
@@ -18,7 +18,7 @@ export type DropzoneDialogBaseProps = DropzoneAreaBaseProps & {
    */
   dialogProps?: DialogProps;
   /** The Dialog title. */
-  dialogTitle?: string | JSX.Element;
+  dialogTitle?: string | ReactElement;
   /**
    * If `true`, the dialog stretches to `maxWidth`.
    *

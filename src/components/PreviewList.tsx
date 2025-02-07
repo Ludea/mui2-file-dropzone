@@ -5,7 +5,7 @@ import Fab, { FabProps } from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import clsx from "clsx";
 import PropTypes from "prop-types";
-import React, { useMemo, JSX } from "react";
+import React, { useMemo, ReactElement } from "react";
 
 import { FileObject } from "../types";
 
@@ -20,7 +20,7 @@ export interface PreviewListProps {
   getPreviewIcon: (
     fileObject: FileObject,
     classes: PreviewListProps["classes"],
-  ) => JSX.Element;
+  ) => ReactElement;
   handleRemove: (index: number) => ChipProps["onDelete"];
   previewChipProps?: ChipProps;
   previewGridClasses?: { container?: string; item?: string };

@@ -482,7 +482,7 @@ class DropzoneAreaBase extends PureComponent<
       rejectedFiles.forEach((rejectedFile) => {
         message = getDropRejectMessage(
           rejectedFile,
-          acceptedFiles || [],
+          acceptedFiles ?? {},
           maxFileSize,
         );
       });

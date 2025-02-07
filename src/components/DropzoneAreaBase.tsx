@@ -23,6 +23,7 @@ import Dropzone, {
   DropEvent,
   DropzoneProps,
   FileRejection,
+  ErrorCode,
 } from "react-dropzone";
 
 import { convertBytesToMbsOrKbs, isImage, readFile } from "../helpers";
@@ -280,7 +281,7 @@ class DropzoneAreaBase extends PureComponent<
 > {
   static propTypes = {
     classes: PropTypes.object,
-    acceptedFiles: PropTypes.arrayOf(PropTypes.string),
+    acceptedFiles: PropTypes.object,
     filesLimit: PropTypes.number,
     Icon: PropTypes.elementType,
     fileObjects: PropTypes.arrayOf(FileObjectShape),
@@ -356,10 +357,23 @@ class DropzoneAreaBase extends PureComponent<
     >,
     getDropRejectMessage: ((rejectedFile, acceptedFiles, maxFileSize) => {
       let message = `File ${rejectedFile.file.name} was rejected. `;
-      if (!acceptedFiles.includes(rejectedFile.file.type)) {
-        message += "File type not supported. ";
+      if (
+        rejectedFile.errors.some(
+          (error) => error.code === ErrorCode.FileInvalidType,
+        )
+      ) {
+        message +=
+          "File type not supported. Only support: " +
+          JSON.stringify(acceptedFiles) +
+          ". ";
       }
-      if (maxFileSize && rejectedFile.file.size > maxFileSize) {
+
+      if (
+        rejectedFile.errors.some(
+          (error) => error.code === ErrorCode.FileTooLarge,
+        ) &&
+        maxFileSize
+      ) {
         message +=
           "File is too big. Size limit is " +
           convertBytesToMbsOrKbs(maxFileSize) +

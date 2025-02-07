@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
-import React, { PureComponent, SyntheticEvent } from "react";
+import type { SyntheticEvent } from "react";
+import React, { PureComponent } from "react";
 
 import { createFileFromUrl, readFile } from "../helpers";
-import { FileObject } from "../types";
-import DropzoneDialogBase, {
-  DropzoneDialogBaseProps,
-} from "./DropzoneDialogBase";
+import type { FileObject } from "../types";
+import type { DropzoneDialogBaseProps } from "./DropzoneDialogBase";
+import DropzoneDialogBase from "./DropzoneDialogBase";
 
 export type DropzoneDialogProps = Omit<
   DropzoneDialogBaseProps,

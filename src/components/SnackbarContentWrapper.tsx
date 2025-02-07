@@ -1,19 +1,19 @@
-import { SvgIconComponent } from "@mui/icons-material";
+import type { SvgIconComponent } from "@mui/icons-material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CloseIcon from "@mui/icons-material/Close";
 import ErrorIcon from "@mui/icons-material/Error";
 import InfoIcon from "@mui/icons-material/Info";
 import WarningIcon from "@mui/icons-material/Warning";
-import { Box, BoxProps, SvgIconProps } from "@mui/material";
+import type { BoxProps, SvgIconProps } from "@mui/material";
+import { Box } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
-import SnackbarContent, {
-  SnackbarContentProps,
-} from "@mui/material/SnackbarContent";
+import type { SnackbarContentProps } from "@mui/material/SnackbarContent";
+import SnackbarContent from "@mui/material/SnackbarContent";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { forwardRef, useMemo } from "react";
 
-import { AlertType } from "../types";
+import type { AlertType } from "../types";
 
 const variantIcon: Record<AlertType, SvgIconComponent> = {
   error: ErrorIcon,

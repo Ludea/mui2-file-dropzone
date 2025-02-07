@@ -2,8 +2,9 @@ import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
 
 import { createFileFromUrl, readFile } from "../helpers";
-import { FileObject } from "../types";
-import DropzoneAreaBase, { DropzoneAreaBaseProps } from "./DropzoneAreaBase";
+import type { FileObject } from "../types";
+import DropzoneAreaBase from "./DropzoneAreaBase";
+import { DropzoneAreaBaseProps } from "./DropzoneAreaBase";
 
 const splitDropzoneAreaProps = (props: DropzoneAreaProps) => {
   const {

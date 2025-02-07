@@ -1,35 +1,32 @@
-import { SvgIconComponent } from "@mui/icons-material";
+import type { SvgIconComponent } from "@mui/icons-material";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import { Box, Theme } from "@mui/material";
-import { BoxProps } from "@mui/material/Box";
-import { ChipProps } from "@mui/material/Chip";
-import { GridProps } from "@mui/material/Grid";
-import Snackbar, {
-  SnackbarOrigin,
-  SnackbarProps,
-} from "@mui/material/Snackbar";
-import Typography, { TypographyProps } from "@mui/material/Typography";
+import type { Theme } from "@mui/material";
+import { Box } from "@mui/material";
+import type { BoxProps } from "@mui/material/Box";
+import type { ChipProps } from "@mui/material/Chip";
+import type { GridProps } from "@mui/material/Grid";
+import type { SnackbarOrigin, SnackbarProps } from "@mui/material/Snackbar";
+import Snackbar from "@mui/material/Snackbar";
+import type { TypographyProps } from "@mui/material/Typography";
+import Typography from "@mui/material/Typography";
 import clsx from "clsx";
 import PropTypes from "prop-types";
-import React, {
-  ComponentProps,
-  Fragment,
-  HTMLProps,
-  PureComponent,
-} from "react";
-import Dropzone, {
+import type { ComponentProps, HTMLProps } from "react";
+import React, { Fragment, PureComponent } from "react";
+import type {
   Accept,
   DropEvent,
   DropzoneProps,
   FileRejection,
-  ErrorCode,
 } from "react-dropzone";
+import Dropzone, { ErrorCode } from "react-dropzone";
 
 import { convertBytesToMbsOrKbs, isImage, readFile } from "../helpers";
-import { AlertType, FileObject } from "../types";
+import type { AlertType, FileObject } from "../types";
 import { withTheme } from "../withTheme";
-import PreviewList, { PreviewListProps } from "./PreviewList";
+import type { PreviewListProps } from "./PreviewList";
+import PreviewList from "./PreviewList";
 import SnackbarContentWrapper from "./SnackbarContentWrapper";
 
 const defaultSnackbarAnchorOrigin: SnackbarOrigin = {

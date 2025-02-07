@@ -1,13 +1,16 @@
 import DeleteIcon from "@mui/icons-material/Delete";
-import Box, { BoxProps } from "@mui/material/Box";
-import Chip, { ChipProps } from "@mui/material/Chip";
-import Fab, { FabProps } from "@mui/material/Fab";
+import type { BoxProps } from "@mui/material/Box";
+import Box from "@mui/material/Box";
+import type { ChipProps } from "@mui/material/Chip";
+import Chip from "@mui/material/Chip";
+import type { FabProps } from "@mui/material/Fab";
+import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { useMemo, ReactElement } from "react";
 
-import { FileObject } from "../types";
+import type { FileObject } from "../types";
 
 export interface PreviewListProps {
   classes?: {

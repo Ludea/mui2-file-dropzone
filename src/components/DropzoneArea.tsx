@@ -67,7 +67,6 @@ interface DropzoneAreaState {
  */
 class DropzoneArea extends PureComponent<DropzoneAreaProps, DropzoneAreaState> {
   static propTypes = {
-    // @ts-ignore
     ...DropzoneAreaBase.propTypes,
     clearOnUnmount: PropTypes.bool,
     initialFiles: PropTypes.arrayOf(

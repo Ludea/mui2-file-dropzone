@@ -1,5 +1,7 @@
-import { Theme, useTheme } from "@mui/material";
-import React, { ComponentType, forwardRef } from "react";
+import type { Theme } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
+import type { ComponentType } from "react";
+import React, { forwardRef } from "react";
 
 type WithoutTheme<P> = Omit<P, "theme">;
 

@@ -151,11 +151,9 @@ class DropzoneArea extends PureComponent<DropzoneAreaProps, DropzoneAreaState> {
       }
 
       // Handle multiple files
-      if (filesLimit) {
-        return {
-          fileObjects: [...prevState.fileObjects, ...newFileObjects],
-        };
-      }
+      return {
+        fileObjects: [...prevState.fileObjects, ...newFileObjects],
+      };
     }, this.notifyFileChange);
   };
 

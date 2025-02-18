@@ -611,7 +611,7 @@ class DropzoneAreaBase extends PureComponent<
     } = this.props;
     const { openSnackBar, snackbarMessage, snackbarVariant } = this.state;
 
-    const isMultiple = filesLimit && filesLimit > 1 ? true : false;
+    const isMultiple = (filesLimit && filesLimit > 1) || !filesLimit;
     const previewsVisible = showPreviews && fileObjects.length > 0;
     const previewsInDropzoneVisible =
       showPreviewsInDropzone && fileObjects.length > 0;

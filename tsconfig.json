@@ -2,7 +2,7 @@
   "compilerOptions": {
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
+    "paths": {"*": ["./*"]},
     "composite": true,
     "declaration": true,
     "declarationMap": true,
@@ -12,7 +12,6 @@
     "jsx": "react",
     "lib": ["dom", "ES2021"],
     "module": "ESNext",
-    "moduleResolution": "node",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
